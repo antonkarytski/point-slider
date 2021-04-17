@@ -1,0 +1,31 @@
+.FullPageSlider{
+  width:100%;
+  min-height: 100vh;
+  min-width: 100vw;
+  height:100vh;
+  display: flex;
+  position: relative;
+
+  &.Vertical{
+    overflow-y: hidden;
+    flex-direction: column;
+    > .Slide{
+      transition: margin-top .5s;
+
+    }
+  }
+
+  &.Horizontal{
+    overflow-x: hidden;
+    flex-direction: row;
+    > .Slide{
+      transition: margin-left .5s;
+    }
+  }
+
+  .Slide{
+    width: 100%;
+    min-width: 100%;
+    min-height: 100vh;
+  }
+}
