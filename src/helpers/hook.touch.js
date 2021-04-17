@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function useSwipe(fn, offsetToFiring, isHorizontal) {
+export function useSwipe(fn, offsetToFiring, isHorizontal, exceptionFn = null) {
   const axleName = isHorizontal ? "clientX" : "clientY";
   const [startCoordinates, setStartCoordinates] = useState({
     clientX: 0,
@@ -9,12 +9,13 @@ export function useSwipe(fn, offsetToFiring, isHorizontal) {
   const [offsetDirection, setOffsetDirection] = useState(null);
 
   function touchStartHandler(event) {
+    if (exceptionFn && !exceptionFn(event)) return;
     const { [axleName]: currentPosition } = event.touches[0];
     setStartCoordinates({ [axleName]: currentPosition });
   }
 
   function touchMoveHandler(event) {
-    event.preventDefault();
+    if (exceptionFn && !exceptionFn(event)) return;
     const { [axleName]: currentPosition } = event.touches[0];
     const offset = currentPosition - startCoordinates[axleName];
     if (Math.abs(offset) > offsetToFiring) {

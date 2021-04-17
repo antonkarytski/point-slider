@@ -7,7 +7,7 @@ import GradientInput from "./styles/GradientInput";
 export default function RangeSlider(props) {
   const {
     className,
-    controlValue,
+    currentDotIndex,
     onChange,
     dataList = [],
     classes: APIClasses = {},
@@ -15,7 +15,8 @@ export default function RangeSlider(props) {
     ...nativeOptions
   } = props;
 
-  const [value, setValue] = useState(controlValue);
+  const [isCurrentlyChange, setCurrentlyChange] = useState(false);
+  const [value, setValue] = useState(dataList[currentDotIndex].dot);
   const listId = useMemo(() => Math.random(), []);
 
   function onChangeHandler({ target }) {
@@ -28,8 +29,11 @@ export default function RangeSlider(props) {
   }
 
   useEffect(() => {
-    setValue(controlValue);
-  }, [controlValue]);
+    if (isCurrentlyChange) return;
+    const currentValueIndex = dataList.findIndex(({ range }) => value <= range);
+    if (currentValueIndex + 1 && currentValueIndex !== currentDotIndex)
+      setValue(dataList[currentDotIndex].dot);
+  }, [currentDotIndex, value, isCurrentlyChange, dataList]);
 
   return (
     <div className={className}>
@@ -40,6 +44,18 @@ export default function RangeSlider(props) {
         className={cx(classes.RangeSlider, APIClasses.input)}
         onChange={onChangeHandler}
         colors={colors}
+        onMouseDown={() => setCurrentlyChange(true)}
+        onMouseUp={() =>
+          setTimeout(() => {
+            setCurrentlyChange(false);
+          })
+        }
+        onTouchStart={() => setCurrentlyChange(true)}
+        onTouchEnd={() =>
+          setTimeout(() => {
+            setCurrentlyChange(false);
+          })
+        }
         {...nativeOptions}
       />
       {dataList.length ? <DataList data={dataList} id={listId} /> : null}

@@ -30,9 +30,19 @@ export default function FullPageSlider(props) {
     setNextSlideIndex,
     WHEEL_TURNS_TO_UPDATE
   );
-  const touchEvents = useSwipe(setNextSlideIndex, 100, isHorizontal);
+
   const sliderRef = useRef(null);
   const moveStyle = useMoveStyle(sliderRef, currentSlideIndex, isHorizontal);
+  const touchEvents = useSwipe(
+    setNextSlideIndex,
+    100,
+    isHorizontal,
+    exceptRangeSliderTouchEvent
+  );
+
+  function exceptRangeSliderTouchEvent(event) {
+    if (event.target.nodeName !== "INPUT") return true;
+  }
 
   return (
     <div
