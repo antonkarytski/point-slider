@@ -1,12 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Oswald');
-
+@import url("https://fonts.googleapis.com/css?family=Oswald");
 
 body {
   font-family: Oswald, sans-serif;
   margin: 0;
 }
 
-.MainSlider{
+.MainSlider {
   background-image: url("./assets/m30b.jpg");
   background-attachment: fixed;
   background-size: auto 120%;
@@ -14,7 +13,7 @@ body {
   background-position: center;
 }
 
-.Slide{
+.Slide {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -22,17 +21,17 @@ body {
   box-sizing: border-box;
   padding: 30px;
 
-  &:not(.FirstSlide){
+  &:not(.FirstSlide) {
     touch-action: none;
   }
 
-  h3{
+  h3 {
     font-size: 75px;
     color: white;
     margin: 0;
     text-align: center;
   }
-  .Intro{
+  .Intro {
     font-size: 40px;
     color: #cecece;
     text-align: center;
@@ -46,7 +45,7 @@ body {
   padding-right: 70px;
   padding-left: 70px;
 
-  h2{
+  h2 {
     font-size: 90px;
     color: white;
     letter-spacing: 15px;
@@ -54,15 +53,14 @@ body {
     text-align: center;
   }
 
-  @media screen and (max-width: 560px){
+  @media screen and (max-width: 560px) {
     justify-content: flex-start;
-    h2{
+    h2 {
       margin-top: 70px;
       font-size: 70px;
       letter-spacing: 5px;
     }
   }
-
 }
 
 .SecondSlide {
@@ -77,54 +75,44 @@ body {
     $black-gradient: linear-gradient(black, black);
 
     &.CarSlide1 {
-      background-image: $black-gradient,
-      url("./assets/bmw315.jpg");
+      background-image: $black-gradient, url("./assets/bmw315.jpg");
     }
 
     &.CarSlide2 {
-      background-image: $black-gradient,
-      url("./assets/old1.jpg");
+      background-image: $black-gradient, url("./assets/old1.jpg");
     }
 
     &.CarSlide3 {
-      background-image: $black-gradient,
-      url("./assets/old2.jpg");
+      background-image: $black-gradient, url("./assets/old2.jpg");
     }
 
     &.CarSlide4 {
-      background-image: $black-gradient,
-      url("./assets/e302.jpg");
+      background-image: $black-gradient, url("./assets/e302.jpg");
     }
 
     &.CarSlide5 {
-      background-image:url("./assets/m3slide.jpg");
+      background-image: url("./assets/m3slide.jpg");
     }
 
-    .Overlay{
+    .Overlay {
       width: 100%;
       height: 100%;
       background: radial-gradient(transparent, black 75%);
       display: flex;
       align-items: flex-end;
-
     }
 
-    h3{
+    h3 {
       font-size: 75px;
       color: white;
       margin-left: 40px;
       margin-bottom: 120px;
     }
   }
-
-
 }
 
 .ThirdSlide {
-
 }
 
 .FourthSlide {
 }
-
-

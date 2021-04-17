@@ -1,31 +1,29 @@
-.FullPageSlider{
-  width:100%;
+.FullPageSlider {
+  width: 100%;
   min-height: 100vh;
   min-width: 100vw;
-  height:100vh;
+  height: 100vh;
   display: flex;
   position: relative;
-  transition: background-position .5s;
+  transition: background-position 0.5s;
 
-
-  &.Vertical{
+  &.Vertical {
     overflow-y: hidden;
     flex-direction: column;
-    > .Slide{
-      transition: margin-top .5s;
-
+    > .Slide {
+      transition: margin-top 0.5s;
     }
   }
 
-  &.Horizontal{
+  &.Horizontal {
     overflow-x: hidden;
     flex-direction: row;
-    > .Slide{
-      transition: margin-left .5s;
+    > .Slide {
+      transition: margin-left 0.5s;
     }
   }
 
-  .Slide{
+  .Slide {
     width: 100%;
     min-width: 100%;
     min-height: 100vh;

@@ -1,23 +1,23 @@
-.DotNavigation{
+.DotNavigation {
   display: flex;
   flex-direction: column;
   position: absolute;
   right: 30px;
   top: 50%;
   transform: translateY(-50%);
-  .Dot{
+  .Dot {
     height: 18px;
     width: 18px;
     border-radius: 50%;
     background-color: white;
     cursor: pointer;
-    transition: background-color .3s;
+    transition: background-color 0.3s;
 
-    &:not(:last-child){
+    &:not(:last-child) {
       margin-bottom: 12px;
     }
 
-    &.Active{
+    &.Active {
       background-color: #e7bf16;
     }
   }
