@@ -14,6 +14,7 @@ export default function FullPageSlider(props){
 
 	const {
 		children,
+		className,
 		horizontal: isHorizontal,
 		useWheelScroll: isUseWheelScroll,
 		useNavigateSlider : isUseNavigateSlider,
@@ -35,6 +36,7 @@ export default function FullPageSlider(props){
 		<div
 			ref={sliderRef}
 			className={cx(
+				className,
 				classes.FullPageSlider,
 				{
 					[classes.Vertical]: !isHorizontal,
@@ -42,6 +44,7 @@ export default function FullPageSlider(props){
 				},
 			)}
 			onWheel={isUseWheelScroll ? directedWheelCounter : null}
+			style={{backgroundPosition: `center ${20 * currentSlideIndex}%`}}
 			{...touchEvents}
 		>
 			{
@@ -58,6 +61,7 @@ export default function FullPageSlider(props){
 			{
 				isUseNavigateSlider?
 				<NavigateSlider
+					externalControlIndex={currentSlideIndex}
 					elements={children}
 					onChange={setSlideIndex}
 				/> : null

@@ -1,12 +1,9 @@
 import styled from "styled-components"
 
-const DEFAULT_COLOR_1 = "#46befa"
+const DEFAULT_COLOR_1 = "#e7bf16"
 const DEFAULT_COLOR_2 = "#ffffff"
 
 const GradientInput = styled.input`
-	
-	$gradientColor1: ${({colors}) => colors[0] ? colors[0] : '#46befa'};
-	$gradientColor2: ${({colors}) => colors[1] ? colors[1] : colors[0] ? colors[0] : '#ffffff'};
 	
 	&::-webkit-slider-runnable-track {
       background: linear-gradient(

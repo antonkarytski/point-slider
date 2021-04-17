@@ -1,17 +1,18 @@
 .RangeSlider {
-  width: 500px;
+  width: 100%;
   -webkit-appearance: none;
 }
 
 .RangeDataList {
   display: flex;
   justify-content: space-between;
-  width: 500px;
+  width: 100%;
 
   option {
     height: auto;
     overflow: hidden;
     margin-top: 6px;
+    color: white;
     &::before {
       content: '';
       display: block;
@@ -19,6 +20,7 @@
       height: auto;
       padding-left: 3px;
       text-indent: 0;
+
     }
   }
 }

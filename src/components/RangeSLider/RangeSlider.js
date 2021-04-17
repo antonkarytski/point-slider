@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react"
+import React, { useMemo, useState, useEffect } from "react"
 import cx from "classnames"
 import classes from "./styles/RangeSlider.module.scss"
 import DataList from "./DataList";
@@ -8,7 +8,7 @@ export default function RangeSlider(props){
 
 	const {
 		className,
-		initValue = 0,
+		initIndex,
 		onChange,
 		dataList = [],
 		classes: APIClasses = {},
@@ -16,22 +16,21 @@ export default function RangeSlider(props){
 		...nativeOptions
 	} = props
 
-	const [value, setValue] = useState(initValue)
+	const [value, setValue] = useState(initIndex)
 	const listId = useMemo(() => Math.random(), [])
-	const dataRanges = useMemo(() => {
-		return dataList.map((dataElement, index) => {
-			return 100 / dataList.length * (index + 1)
-		})
-	}, [dataList])
 
 	function onChangeHandler({target}){
 		const value = Number(target.value)
 		setValue(value)
-		const currentRangeIndex = dataRanges.findIndex((rangeValue) => {
-			return value <= rangeValue
+		const currentRangeIndex = dataList.findIndex(({range}) => {
+			return value <= range
 		})
 		onChange(value, currentRangeIndex)
 	}
+
+	useEffect(() => {
+		setValue(initIndex)
+	},[initIndex])
 
 	return (
 		<div className={className}>

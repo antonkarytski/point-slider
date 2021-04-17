@@ -1,13 +1,32 @@
 import React from "react";
+import cx from "classnames"
 import classes from "./Styles.module.scss"
 import Slide from "./components/Slide";
 import FullPageSlider from "./components/FullPageSlider/FullPageSlider";
 
-//Add slider style
-//Optimize and test to mobile
-//Add changing of slider state with index toggle
-//Add paralax
+const historySlides = [
+	{
+		name:"BMW 3/15PS",
+		title:"1928"
+	},
+	{
+		name:"BMW 335",
+		title:"1940"
+	},
+	{
+		name:"BMW 507",
+		title:"1960"
+	},
+	{
+		name:"BMW E30",
+		title:"1980"
+	},
+	{
+		name:"BMW M3 2021",
+		title:"2021"
+	}
 
+]
 
 function App(){
 
@@ -15,46 +34,39 @@ function App(){
 		<FullPageSlider
 			useWheelScroll
 			useDotNavigation
+			className={classes.MainSlider}
 		>
-			<Slide className={classes.FirstSlide}>
+			<Slide className={cx(classes.FirstSlide, classes.Slide)}>
+				<h2>Welcome to BMW</h2>
+			</Slide>
+			<Slide className={cx(classes.SecondSlide, classes.Slide)}>
 				<FullPageSlider
 					useNavigateSlider
 					horizontal
 				>
-					<Slide
-						rangeOptions={{
-							title:"1960",
-						}}
-					>
-						Die
-					</Slide>
-					<Slide
-						rangeOptions={{
-							title:"1975"
-						}}
-					>
-						Motherfucker
-					</Slide>
-					<Slide
-						rangeOptions={{
-							title:"1990"
-						}}
-					>
-						Otsosi
-					</Slide>
+					{
+						historySlides.map(({title,name}, index) => {
+							return(
+								<Slide
+									className={cx(classes[`CarSlide${index+1}`], classes.HistoryInnerSlide)}
+									key={`historySlide${index}`}
+									rangeOptions={{title}}
+								>
+									<div className={classes.Overlay}>
+										<h3>{name}</h3>
+									</div>
+								</Slide>
+							)
+						})
+					}
 				</FullPageSlider>
 			</Slide>
-			<Slide className={classes.SecondSlide}>
-				<div>Hello1</div>
-				<div>Hello2</div>
+			<Slide className={cx(classes.ThirdSlide, classes.Slide)}>
+				<span className={classes.Intro}>Here...</span>
 			</Slide>
-			<Slide className={classes.ThirdSlide}>
-				<div>Hello1</div>
-				<div>Hello2</div>
-			</Slide>
-			<Slide className={classes.FourthSlide}>
-				<div>Hello1</div>
-				<div>Hello2</div>
+			<Slide className={cx(classes.ThirdSlide, classes.FourthSlide, classes.Slide)}>
+				<span className={classes.Intro}>What you need NOW</span>
+				<h3>BMW M3 2021</h3>
 			</Slide>
 		</FullPageSlider>
 	);

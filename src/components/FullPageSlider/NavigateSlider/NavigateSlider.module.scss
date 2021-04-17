@@ -3,6 +3,9 @@
   bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
+  min-width: 300px;
+  width: 80%;
+  max-width: 500px;
 
   input{
     background-color: transparent;
@@ -14,17 +17,11 @@
     }
 
     &::-webkit-slider-thumb {
-      //margin-top: -22.5px;
-      //width: 50px;
-      //height: 50px;
-      //background-size: contain;
-      //background-repeat: no-repeat;
-      //background-image: url(https://upload.wikimedia.org/wikipedia/commons/9/90/Mercedes-Logo.svg);
       margin-top: -5px;
       width: 15px;
       height: 15px;
       border-radius: 50%;
-      background-color: #46befa;
+      background-color:  #e7bf16;
 
       cursor: pointer;
       -webkit-appearance: none;
