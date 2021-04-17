@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/point-slider/static/css/main.639d67cb.chunk.css",
+    "main.js": "/point-slider/static/js/main.926c396b.chunk.js",
+    "main.js.map": "/point-slider/static/js/main.926c396b.chunk.js.map",
+    "runtime-main.js": "/point-slider/static/js/runtime-main.59218c48.js",
+    "runtime-main.js.map": "/point-slider/static/js/runtime-main.59218c48.js.map",
+    "static/js/2.369d4849.chunk.js": "/point-slider/static/js/2.369d4849.chunk.js",
+    "static/js/2.369d4849.chunk.js.map": "/point-slider/static/js/2.369d4849.chunk.js.map",
+    "index.html": "/point-slider/index.html",
+    "static/css/main.639d67cb.chunk.css.map": "/point-slider/static/css/main.639d67cb.chunk.css.map",
+    "static/js/2.369d4849.chunk.js.LICENSE.txt": "/point-slider/static/js/2.369d4849.chunk.js.LICENSE.txt",
+    "static/media/Styles.module.scss": "/point-slider/static/media/swot.03489d63.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.59218c48.js",
+    "static/js/2.369d4849.chunk.js",
+    "static/css/main.639d67cb.chunk.css",
+    "static/js/main.926c396b.chunk.js"
+  ]
+}
