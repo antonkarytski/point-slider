@@ -21,6 +21,11 @@ body {
   align-items: center;
   box-sizing: border-box;
   padding: 30px;
+
+  &:not(.FirstSlide){
+    touch-action: none;
+  }
+
   h3{
     font-size: 75px;
     color: white;
