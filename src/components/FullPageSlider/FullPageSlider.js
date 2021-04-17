@@ -2,10 +2,10 @@ import React, { Children, useRef } from "react";
 import cx from "classnames";
 import NavigateSlider from "./NavigateSlider/NavigateSlider";
 import DotNavigation from "../DotNavigation/DotNavigation";
-import { useWheelCounter } from "../../helpers/hook.wheel";
+import { useWheelTurnsCounter } from "../../helpers/hook.wheel";
 import { useRangeFetch } from "../../helpers/hook.rangeFetch";
 import { useSwipe } from "../../helpers/hook.touch";
-import { useMoveStyle } from "../../helpers/hook.moveStyle";
+import { useMoveStyle } from "../../helpers/hook.styles";
 import classes from "./FullPageSlider.module.scss";
 
 const WHEEL_TURNS_TO_UPDATE = 4;
@@ -18,6 +18,7 @@ export default function FullPageSlider(props) {
     useWheelScroll: isUseWheelScroll,
     useNavigateSlider: isUseNavigateSlider,
     useDotNavigation: isUseDotNavigation,
+    useParallaxBackground: isUseParallaxBackground,
   } = props;
 
   const {
@@ -26,7 +27,7 @@ export default function FullPageSlider(props) {
     setIndex: setSlideIndex,
   } = useRangeFetch(children.length - 1);
 
-  const directedWheelCounter = useWheelCounter(
+  const directedWheelCounter = useWheelTurnsCounter(
     setNextSlideIndex,
     WHEEL_TURNS_TO_UPDATE
   );
@@ -37,12 +38,11 @@ export default function FullPageSlider(props) {
     setNextSlideIndex,
     100,
     isHorizontal,
-    exceptRangeSliderTouchEvent
+    (event) => event.target.nodeName !== "INPUT"
   );
-
-  function exceptRangeSliderTouchEvent(event) {
-    if (event.target.nodeName !== "INPUT") return true;
-  }
+  const sliderStyles = isUseParallaxBackground
+    ? { backgroundPosition: `center ${20 * currentSlideIndex}%` }
+    : null;
 
   return (
     <div
@@ -52,7 +52,7 @@ export default function FullPageSlider(props) {
         [classes.Horizontal]: isHorizontal,
       })}
       onWheel={isUseWheelScroll ? directedWheelCounter : null}
-      style={{ backgroundPosition: `center ${20 * currentSlideIndex}%` }}
+      style={sliderStyles}
       {...touchEvents}
     >
       {Children.map(children, (child, index) => {

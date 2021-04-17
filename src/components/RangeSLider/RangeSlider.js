@@ -31,31 +31,23 @@ export default function RangeSlider(props) {
   useEffect(() => {
     if (isCurrentlyChange) return;
     const currentValueIndex = dataList.findIndex(({ range }) => value <= range);
-    if (currentValueIndex + 1 && currentValueIndex !== currentDotIndex)
+    if (currentValueIndex !== currentDotIndex)
       setValue(dataList[currentDotIndex].dot);
   }, [currentDotIndex, value, isCurrentlyChange, dataList]);
 
   return (
     <div className={className}>
       <GradientInput
+        type={"range"}
         list={listId}
         value={value}
-        type={"range"}
         className={cx(classes.RangeSlider, APIClasses.input)}
         onChange={onChangeHandler}
         colors={colors}
         onMouseDown={() => setCurrentlyChange(true)}
-        onMouseUp={() =>
-          setTimeout(() => {
-            setCurrentlyChange(false);
-          })
-        }
+        onMouseUp={() => setCurrentlyChange(false)}
         onTouchStart={() => setCurrentlyChange(true)}
-        onTouchEnd={() =>
-          setTimeout(() => {
-            setCurrentlyChange(false);
-          })
-        }
+        onTouchEnd={() => setCurrentlyChange(false)}
         {...nativeOptions}
       />
       {dataList.length ? <DataList data={dataList} id={listId} /> : null}

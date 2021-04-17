@@ -1,8 +1,8 @@
 import React from "react";
 import cx from "classnames";
-import classes from "./Styles.module.scss";
 import Slide from "./components/Slide";
 import FullPageSlider from "./components/FullPageSlider/FullPageSlider";
+import classes from "./Styles.module.scss";
 
 const historySlides = [
   {
@@ -32,6 +32,7 @@ function App() {
     <FullPageSlider
       useWheelScroll
       useDotNavigation
+      useParallaxBackground
       className={classes.MainSlider}
     >
       <Slide className={cx(classes.FirstSlide, classes.Slide)}>

@@ -1,7 +1,7 @@
 import React from "react";
 import cx from "classnames";
-import classes from "./DotNavigation.module.scss";
 import Dot from "./Dot";
+import classes from "./DotNavigation.module.scss";
 
 export default function DotNavigation({ size, activeIndex, onDotSelect }) {
   return (

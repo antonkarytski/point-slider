@@ -4,8 +4,8 @@
   left: 50%;
   transform: translateX(-50%);
   min-width: 300px;
-  width: 80%;
   max-width: 500px;
+  width: 80%;
 
   input{
     background-color: transparent;
@@ -22,13 +22,8 @@
       height: 15px;
       border-radius: 50%;
       background-color:  #e7bf16;
-
       cursor: pointer;
       -webkit-appearance: none;
     }
-  }
-
-  datalist{
-
   }
 }
