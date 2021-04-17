@@ -8,12 +8,12 @@ export function useTouchEvents(fn, offsetToFiring, isHorizontal){
 
 
 	function touchStartHandler(event){
-
 		const {[axleName]: currentPosition} = event.touches[0]
 		setStartCoordinates({[axleName]: currentPosition})
 	}
 
 	function touchMoveHandler(event){
+		event.preventDefault()
 		const {[axleName]: currentPosition} = event.touches[0]
 		const offset = currentPosition - startCoordinates[axleName]
 		if(Math.abs(offset) > offsetToFiring) {

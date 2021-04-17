@@ -8,8 +8,6 @@ export default function NavigateSlider({elements, onChange, externalControlIndex
 		onChange(indexValue)
 	}
 
-	console.log(externalControlIndex)
-
 	const sliderDataSet = useMemo(() => {
 		return Children.map(elements, (child, index) => {
 			const range = 100 / elements.length * (index + 1)
@@ -20,7 +18,7 @@ export default function NavigateSlider({elements, onChange, externalControlIndex
 
 	return(
 		<RangeSlider
-			initIndex={sliderDataSet[externalControlIndex].dot}
+			controlValue={sliderDataSet[externalControlIndex].dot}
 			className={classes.NavigateSlider}
 			dataList={sliderDataSet}
 			onChange={onChangeHandler}

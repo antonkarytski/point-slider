@@ -8,7 +8,7 @@ export default function RangeSlider(props){
 
 	const {
 		className,
-		initIndex,
+		controlValue,
 		onChange,
 		dataList = [],
 		classes: APIClasses = {},
@@ -16,7 +16,7 @@ export default function RangeSlider(props){
 		...nativeOptions
 	} = props
 
-	const [value, setValue] = useState(initIndex)
+	const [value, setValue] = useState(controlValue)
 	const listId = useMemo(() => Math.random(), [])
 
 	function onChangeHandler({target}){
@@ -29,8 +29,8 @@ export default function RangeSlider(props){
 	}
 
 	useEffect(() => {
-		setValue(initIndex)
-	},[initIndex])
+		setValue(controlValue)
+	},[controlValue])
 
 	return (
 		<div className={className}>
