@@ -8,9 +8,13 @@ body {
 .MainSlider {
   background-image: url("./assets/m30b.jpg");
   background-attachment: fixed;
-  background-size: 100% auto;
+  background-size: 120%;
   background-repeat: no-repeat;
   background-position: center;
+
+  @media screen and(max-aspect-ratio: 18/10) {
+    background-size: auto 120%;
+  }
 
 }
 

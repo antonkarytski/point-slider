@@ -25,11 +25,3 @@ export function useMoveStyle(ref, index, isHorizontal) {
 
   return moveStyle;
 }
-
-export function useBackgroundResize() {
-  const { width: windowWidth, height: windowHeight } = useWindowSize();
-
-  return {
-    backgroundSize: windowWidth > windowHeight ? "100% auto" : "auto 120%",
-  };
-}
