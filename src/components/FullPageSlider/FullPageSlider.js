@@ -57,9 +57,10 @@ export default function FullPageSlider(props) {
       {...touchEvents}
     >
       {Children.map(children, (child, index) => {
+        const { rangeOptions, ...props } = child.props;
         return (
           <child.type
-            {...child.props}
+            {...props}
             className={cx(child.props.className, classes.Slide)}
             style={index === 0 ? moveStyle : null}
           />
