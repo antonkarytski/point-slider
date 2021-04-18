@@ -5,7 +5,7 @@ import DotNavigation from "../DotNavigation/DotNavigation";
 import { useWheelTurnsCounter } from "../../helpers/hook.wheel";
 import { useRangeFetch } from "../../helpers/hook.rangeFetch";
 import { useSwipe } from "../../helpers/hook.touch";
-import { useMoveStyle } from "../../helpers/hook.styles";
+import { useMoveStyle, useParallaxStyle } from "../../helpers/hook.styles";
 import classes from "./FullPageSlider.module.scss";
 
 const WHEEL_TURNS_TO_UPDATE = 4;
@@ -40,9 +40,8 @@ export default function FullPageSlider(props) {
     isHorizontal,
     (event) => event.target.nodeName !== "INPUT"
   );
-  const sliderStyles = isUseParallaxBackground
-    ? { backgroundPosition: `center ${20 * currentSlideIndex}%` }
-    : null;
+
+  const sliderStyles = useParallaxStyle(currentSlideIndex);
 
   return (
     <div
@@ -52,7 +51,7 @@ export default function FullPageSlider(props) {
         [classes.Horizontal]: isHorizontal,
       })}
       onWheel={isUseWheelScroll ? directedWheelCounter : null}
-      style={sliderStyles}
+      style={isUseParallaxBackground ? sliderStyles : null}
       {...touchEvents}
     >
       {Children.map(children, (child, index) => {

@@ -27,7 +27,7 @@ const historySlides = [
   },
 ];
 
-function App() {
+export default function App() {
   return (
     <FullPageSlider
       useWheelScroll
@@ -58,17 +58,13 @@ function App() {
           })}
         </FullPageSlider>
       </Slide>
-      <Slide className={cx(classes.ThirdSlide, classes.Slide)}>
+      <Slide className={classes.Slide}>
         <span className={classes.Intro}>Here...</span>
       </Slide>
-      <Slide
-        className={cx(classes.ThirdSlide, classes.FourthSlide, classes.Slide)}
-      >
+      <Slide className={classes.Slide}>
         <span className={classes.Intro}>What you need NOW</span>
         <h3>BMW M3 2021</h3>
       </Slide>
     </FullPageSlider>
   );
 }
-
-export default App;

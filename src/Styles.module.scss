@@ -8,9 +8,10 @@ body {
 .MainSlider {
   background-image: url("./assets/m30b.jpg");
   background-attachment: fixed;
-  background-size: auto 120%;
+  background-size: 100% auto;
   background-repeat: no-repeat;
   background-position: center;
+
 }
 
 .Slide {
@@ -127,10 +128,4 @@ body {
       }
     }
   }
-}
-
-.ThirdSlide {
-}
-
-.FourthSlide {
 }
