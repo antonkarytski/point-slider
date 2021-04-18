@@ -26,11 +26,10 @@ export function useMoveStyle(ref, index, isHorizontal) {
   return moveStyle;
 }
 
-export function useParallaxStyle(index) {
+export function useBackgroundResize() {
   const { width: windowWidth, height: windowHeight } = useWindowSize();
 
   return {
-    backgroundPosition: `center ${20 * index}%`,
     backgroundSize: windowWidth > windowHeight ? "100% auto" : "auto 120%",
   };
 }
