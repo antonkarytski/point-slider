@@ -1,3 +1,5 @@
+demo: https://heyheyjude.github.io/point-slider/
+
 used techonologies: **JS, React, styled-components, Scss (modules)**
 
 on desktop use mouse wheel for vertical scroll and slider for horizontal
