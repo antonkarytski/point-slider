@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import cx from "classnames";
 import classes from "./styles/RangeSlider.module.scss";
 import DataList from "./DataList";
@@ -17,7 +17,7 @@ export default function RangeSlider(props) {
 
   const [isCurrentlyChange, setCurrentlyChange] = useState(false);
   const [value, setValue] = useState(dataList[currentDotIndex].dot);
-  const listId = useMemo(() => Math.random(), []);
+  const listId = useRef(Math.random());
 
   function onChangeHandler({ target }) {
     const value = Number(target.value);
@@ -39,7 +39,7 @@ export default function RangeSlider(props) {
     <div className={className}>
       <GradientInput
         type={"range"}
-        list={listId}
+        list={listId.current}
         value={value}
         className={cx(classes.RangeSlider, APIClasses.input)}
         onChange={onChangeHandler}
@@ -50,7 +50,9 @@ export default function RangeSlider(props) {
         onTouchEnd={() => setCurrentlyChange(false)}
         {...nativeOptions}
       />
-      {dataList.length ? <DataList data={dataList} id={listId} /> : null}
+      {dataList.length ? (
+        <DataList data={dataList} id={listId.current} />
+      ) : null}
     </div>
   );
 }
